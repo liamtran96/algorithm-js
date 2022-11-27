@@ -43,8 +43,6 @@ const randomNumberInRange = (a, b) => {
     } else {
         const random = Math.random();
         console.log("random", random)
-        // console.log("randomtimeb", randomtimeb)
-        // included a and b
         const result = Math.round(random * (b - a ) + a);
         console.log(result)
         return result;
