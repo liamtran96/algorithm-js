@@ -13,7 +13,7 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
     let countOrange = 0;
     apples.map((apple,index) => {
         const distanceOfEachApple = a + apples[index];
-    console.log("distanceOfEachApple",distanceOfEachApple);
+        console.log("distanceOfEachApple",distanceOfEachApple);
         if(distanceOfEachApple >= s && distanceOfEachApple <= t){
             countApple++
         }
