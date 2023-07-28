@@ -8,9 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "nodemonConfig": {
-    "watch": "leetcode/index.js",
+    "watch": "index.js",
     "ext": "js",
-    "exec": "node leetcode/index.js"
+    "exec": "node index.js"
   },
   "keywords": [],
   "author": "",
