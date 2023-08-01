@@ -1,5 +1,3 @@
-//this file for running code to test
-
 /**
  * Example 1:
 
@@ -49,10 +47,7 @@ function isVowel(char) {
     return chars.join('');
   }
 
-// Test the function
-const inputString = "hello world";
-const reversedString = reverseVowels(inputString);
-console.log(reversedString); // Output: "hollo werld"
+  reverseVowels("hello")
 
 
 
