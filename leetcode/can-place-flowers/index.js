@@ -28,10 +28,13 @@ function canPlaceFlowers(flowerbed, n) {
   
   for (let i = 0; i < flowerbed.length; i++) {
     if (flowerbed[i] === 0) {
-      const prevEmpty = i === 0 || flowerbed[i - 1] === 0;
-      console.log("flowerbed[i - 1]",prevEmpty)
-      const nextEmpty = i === flowerbed.length - 1 || flowerbed[i + 1] === 0;
+      //check the prev splot is empty
+      const prevEmpty =  flowerbed[i - 1] === 0;
+      console.log("prevEmpty",prevEmpty)
+      //check the next splot is empty
+      const nextEmpty = flowerbed[i + 1] === 0;
       console.log("nextEmpty",nextEmpty)
+      //check prevEmpty && nextEmpty == true it mean current position is available to plant the flower
       if (prevEmpty && nextEmpty) {
         flowerbed[i] = 1; // Plant a flower at the current position
         count++;
