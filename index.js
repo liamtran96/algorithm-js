@@ -1,59 +1,41 @@
-//this file for running code to test
-
-/**
- * Example 1:
-
-    Input: s = "hello"
-    Output: "holle"
-    Example 2:
-
-    Input: s = "leetcode"
-    Output: "leotcede
- */
-/**
- * @param {string} s
- * @return {string}
- */
-
-function isVowel(char) {
-    return /[aeiouAEIOU]/.test(char);
+var compress = function(chars) {
+  let groupedChars = [];
+  let currentGroup = [chars[0]];
+  
+  for (let i = 1; i < chars.length; i++) {
+      if (chars[i] === chars[i - 1]) {
+          currentGroup.push(chars[i]);
+      } else {
+          groupedChars.push(currentGroup);
+          currentGroup = [chars[i]];
+      }
   }
   
-  function reverseVowels(input) {
-    const chars = input.split('');
-    console.log("chars",chars);
-    let left = 0;
-    let right = chars.length - 1;
+  groupedChars.push(currentGroup);
+  let transformedArray = [];
   
-    while (left < right) {
-      // Move left pointer to the next vowel
-      while (left < right && !isVowel(chars[left])) {
-        left++;
+  for (let subArray of groupedChars) {
+      transformedArray.push(subArray[0]);
+      if (subArray.length > 1) {
+          // Convert the length to a string and split it into individual digits
+          const lengthDigits = String(subArray.length).split('');
+          transformedArray.push(...lengthDigits);
+          console.log("lengthDigits",lengthDigits)
       }
-  
-      // Move right pointer to the previous vowel
-      while (left < right && !isVowel(chars[right])) {
-        right--;
-      }
-  
-      // Swap the vowels at the left and right pointers
-      if (left < right) {
-        const temp = chars[left];
-        chars[left] = chars[right];
-        chars[right] = temp;
-        left++;
-        right--;
-      }
-    }
-  
-    return chars.join('');
   }
+  console.log("transformedArray",transformedArray)
+  
+  // Modify the original chars array with the compressed data
+  for (let i = 0; i < transformedArray.length; i++) {
+      chars[i] = transformedArray[i];
+  }
+  
+  
+  // Return the new length of the compressed array
+  return transformedArray.length;
+};
 
-// Test the function
-const inputString = "hello world";
-const reversedString = reverseVowels(inputString);
-console.log(reversedString); // Output: "hollo werld"
-
-
-
-      
+let chars = ["a", "a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "c"];
+const newLength = compress(chars);
+// console.log(chars); // The modified chars array with compressed data
+// console.log(newLength); // The length of the modified chars array
